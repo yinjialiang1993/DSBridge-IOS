@@ -92,6 +92,15 @@ static NSHashTable* g_webViews = nil;
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.scalesPageToFit = YES;
+        self.delegate = self;
+    }
+    return self;
+}
+
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     return YES;
